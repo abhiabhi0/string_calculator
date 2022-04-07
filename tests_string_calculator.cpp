@@ -8,7 +8,7 @@ TEST(test_add, empty_string_test)
 	EXPECT_EQ(0, add("   "));
 }
 
-int main(int argc, char **argv) {
-  ::testing::InitGoogleTest(&argc, argv);
+int main() {
+  ::testing::InitGoogleTest();
   return RUN_ALL_TESTS();
 }
