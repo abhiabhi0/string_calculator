@@ -29,5 +29,14 @@ int add(std::string numbers)
 		}
 	}
 
+	//if only one number is passed in string
+	if (!nums.empty())
+	{
+		for (int num : nums)
+		{
+			sum += num;
+		}
+	}
+
 	return sum;
 }
