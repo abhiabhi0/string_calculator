@@ -22,14 +22,15 @@ int add(std::string numbers)
 	{
 		sum += i; //adding integer to sum
 
-		if (ss.peek() == ' ')
+		if (ss.peek() == ' ' || ss.peek() == ',')
 		{
 			//handling empty string using ss.peek() == ' '
+			//handling numbers seperated by comma using ss.peek() == ','
 			ss.ignore();
 		}
 	}
 
-	//if only one number is passed in string
+	//string is not empty
 	if (!nums.empty())
 	{
 		for (int num : nums)

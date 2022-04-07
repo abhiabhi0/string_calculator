@@ -15,6 +15,13 @@ TEST(test_add, one_number_test)
 	EXPECT_EQ(13, add("13"));
 }
 
+//more than one numbers seperated by commas
+TEST(test_add, numbers_seperated_by_commas_test)
+{
+	EXPECT_EQ(6, add("2, 4"));
+	EXPECT_EQ(19, add("13, 1, 5"));
+}
+
 int main() {
   ::testing::InitGoogleTest();
   return RUN_ALL_TESTS();
