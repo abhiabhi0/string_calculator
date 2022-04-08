@@ -30,6 +30,14 @@ TEST(test_add, numbers_seperated_by_newline_characters_test)
 	EXPECT_EQ(19, add("13\n1\n5"));
 }
 
+//numbers seperated by different delimiters
+TEST(test_add, numbers_seperated_by_different_delimiters_characters_test)
+{
+	EXPECT_EQ(14, add("//;1\n11;2"));
+	EXPECT_EQ(16, add("//;1\n11;2 , 1@1"));
+	EXPECT_EQ(19, add("#13\n1\n5"));
+}
+
 int main() {
   ::testing::InitGoogleTest();
   return RUN_ALL_TESTS();
