@@ -1,1 +1,1 @@
-Addition is : 10
+Addition is : 6

@@ -19,7 +19,15 @@ TEST(test_add, one_number_test)
 TEST(test_add, numbers_seperated_by_commas_test)
 {
 	EXPECT_EQ(6, add("2, 4"));
-	EXPECT_EQ(19, add("13, 1, 5"));
+	EXPECT_EQ(19, add("13 , 1, 5"));
+}
+
+//numbers seperated by newline
+TEST(test_add, numbers_seperated_by_newline_characters_test)
+{
+	EXPECT_EQ(6, add("2\n4"));
+	EXPECT_EQ(19, add("13\n1, 5"));
+	EXPECT_EQ(19, add("13\n1\n5"));
 }
 
 int main() {

@@ -1,6 +1,5 @@
 #include <string>
 #include <sstream>
-#include <vector>
 
 /**
  * string of numbers is passed as parameter
@@ -12,7 +11,6 @@
 int add(std::string numbers)
 {
 	//all numbers are stored in nums
-	std::vector<int> nums;
 
 	int sum = 0;
 
@@ -20,22 +18,13 @@ int add(std::string numbers)
 
 	for (int i; ss >> i;)
 	{
-		sum += i; //adding integer to sum
-
-		if (ss.peek() == ' ' || ss.peek() == ',')
-		{
-			//handling empty string using ss.peek() == ' '
+		sum += i;
+		while (ss.peek() == ',' || ss.peek() == ' ' || ss.peek() == '\\' || ss.peek() == 'n')
+		{	
+			//handling numbers seperated by whitespaces using ss.peek() == ' '
 			//handling numbers seperated by comma using ss.peek() == ','
+			//handling numbers seperated by newline using ss.peek() == '\\' || ss.peek() == 'n'
 			ss.ignore();
-		}
-	}
-
-	//string is not empty
-	if (!nums.empty())
-	{
-		for (int num : nums)
-		{
-			sum += num;
 		}
 	}
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <regex>
 #include "string_calculator.cpp"
 
 int main()
@@ -11,11 +12,11 @@ int main()
     	freopen("out.txt", "w", stdout);
    
 	#endif
-
-    	std::string numbers; //input string containing integers
-    	std::getline(std::cin, numbers);
-
-    	int result = add(numbers);
+    	std::string input_str; //input string containing integers
+    	
+    	std::getline(std::cin, input_str);
+    	
+    	int result = add(input_str);
 
     	std::cout << "Addition is : " << result << "\n";
 
