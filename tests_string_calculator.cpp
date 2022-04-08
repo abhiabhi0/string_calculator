@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include <string>
 #include "string_calculator.cpp"
 
 //Empty string test
@@ -36,6 +37,28 @@ TEST(test_add, numbers_seperated_by_different_delimiters_characters_test)
 	EXPECT_EQ(14, add("//;1\n11;2"));
 	EXPECT_EQ(16, add("//;1\n11;2 , 1@1"));
 	EXPECT_EQ(19, add("#13\n1\n5"));
+}
+
+//negative numbers exception
+TEST(test_add, negative_numbers_exception)
+{
+	try  
+	{
+		add("-3");
+	}
+	catch(std::invalid_argument& e)
+	{
+		EXPECT_EQ(e.what(), std::string("negatives not allowed -3 "));
+	}
+
+	try  
+	{
+		add("6, -2, -1, 5");
+	}
+	catch(std::invalid_argument& e)
+	{
+		EXPECT_EQ(e.what(), std::string("negatives not allowed -2 -1 "));
+	}
 }
 
 int main() {

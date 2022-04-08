@@ -30,7 +30,6 @@ void remove_delimiters(std::stringstream& ss)
 
 int add(std::string numbers)
 {
-	//all numbers are stored in nums
 
 	int sum = 0;
 
@@ -41,18 +40,28 @@ int add(std::string numbers)
 	//remove leading delimiters
 	remove_delimiters(ss);
 
+	bool is_neg = false;
+	std::string excption_str = "negatives not allowed ";
+
 	while (ss >> i)
 	{
-		sum += i;
-
+		if (i < 0)
+		{
+			is_neg = true;
+			excption_str += std::to_string(i) + " ";
+		}
+		else  
+		{
+			sum += i;
+		}
 		remove_delimiters(ss);
 	}
 
-
-	// for (int num : nums)
-	// {
-	// 	sum += num;
-	// }
+	if (is_neg)
+	{
+		sum = 0;
+		throw std::invalid_argument(excption_str);
+	}
 
 	return sum;
 }
